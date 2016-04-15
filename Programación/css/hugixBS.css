@@ -1,0 +1,113 @@
+.navbar a.navbar-brand {
+		padding: 9px 25px 8px; 
+		}
+		
+		.navbar-fixed-top {
+			height: 0px; /* Whatever you want. */
+			width:100%;			
+		}		
+		
+		.navbar {
+			height: 80px; /* Whatever you want. */
+			width:100%;			
+		}	
+		
+		.navbar .brand {
+			max-height: 40px;
+			overflow: visible;
+			padding-top: 0;
+			padding-bottom: 0;
+			}		
+		.navbar-inverse{
+			background-color: #233072;
+		}
+		.container{
+			background-color: #233072;
+		}
+		body > .container {
+		  padding: 5px 5px 5px;
+		  background-color: #3078EF;		  
+		}
+		input{
+			color: black;
+			font-family:Tahoma, Geneva, sans-serif;
+			font-size:1.2em;
+		}
+		
+		/* Sticky footer styles
+-------------------------------------------------- */
+		html {
+		  position: relative;
+		  min-height: 100%;
+		}
+		body {
+		font-family:Tahoma, Geneva, sans-serif;
+		background-color: #233072;
+		  /* Margin bottom by footer height */
+		  margin-bottom: 0%;
+		  background-image:url(../images/cgl1e.png);
+				  //overflow: hidden;//Para que se oculte la barra 
+		}
+		.footer {
+		  position: absolute;
+		  bottom: 0%;
+		  width: 100%;
+		  /* Set the fixed height of the footer here */
+		  height: 9%;
+		  background-color: #233072;
+		  body: 10px;
+		}
+
+
+		/* Custom page CSS
+-------------------------------------------------- */
+		/* Not required for template or sticky footer method. */
+
+
+		.container .text-muted {
+		  margin: 0px 0;
+		}
+
+		.footer > .container {
+		  padding-right: 10px;
+		  padding-left: 10px;
+		}
+
+		code {
+		  font-size: 80%;
+		}
+				
+				
+		/*
+		---------------------------------------------------------*/
+		
+		.btn {
+  background: #ffea00;
+  background-image: -webkit-linear-gradient(top, #ffea00, #ebb40e);
+  background-image: -moz-linear-gradient(top, #ffea00, #ebb40e);
+  background-image: -ms-linear-gradient(top, #ffea00, #ebb40e);
+  background-image: -o-linear-gradient(top, #ffea00, #ebb40e);
+  background-image: linear-gradient(to bottom, #ffea00, #ebb40e);
+  -webkit-border-radius: 9;
+  -moz-border-radius: 9;
+  border-radius: 9px;
+  text-shadow: 1px 1px 3px #666666;
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  box-shadow: 0px 1px 3px #666666;
+  font-family: Tahoma, Geneva, sans-serif;
+  color: #041f8a;
+  font-size: 14px;
+  padding: 3px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #e6bb0e;
+  background-image: -webkit-linear-gradient(top, #e6bb0e, #e0fa1b);
+  background-image: -moz-linear-gradient(top, #e6bb0e, #e0fa1b);
+  background-image: -ms-linear-gradient(top, #e6bb0e, #e0fa1b);
+  background-image: -o-linear-gradient(top, #e6bb0e, #e0fa1b);
+  background-image: linear-gradient(to bottom, #e6bb0e, #e0fa1b);
+  text-decoration: none;
+}

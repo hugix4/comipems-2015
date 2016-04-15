@@ -1,0 +1,190 @@
+<?php
+session_start();
+include('cnxD.php');
+require('fxPreguntas.php');
+$funciones=new fxpreguntas();
+$conexion=new conexionD();
+$conexion->conectar();
+$tituloEx='Examen Diagnóstico de Inglés 2015';
+$nombreBD='comipems';
+$pExamen='reC.php';
+?>
+<!doctype html>
+<html lang="es">
+	<head>
+		<title>Coordinaci&oacute;n General de Lenguas</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><!-- jQuery library -->
+		<link rel="stylesheet" href="hugix.css" type="text/css" media="screen" /><!-- Mi hoja de estilos-->
+		<link rel="stylesheet" href="css/hugixBS.css" type="text/css" media="screen" /><!-- Mi 2a hoja de estilos-->
+		
+		<script>
+			function dirCGL()
+			{
+				var direccion="http://www.cgl.unam.mx";
+				location.href=direccion;
+			}
+			
+			function dirUNAM()
+			{
+				var direccion="http://www.unam.mx";
+				location.href=direccion;
+			}
+			
+			function autoC() {
+				  setTimeout(function() {document.getElementById('btnE').click();}, 500);
+			}
+			
+			
+		</script>
+	</head>	
+	<body style="margin-top: 0%;">
+		<nav class="navbar navbar-inverse">
+			
+			<div class="navbar-header">					
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>					  
+				<a class="navbar-brand" href="#">
+					<img src="images/LogoUNAMamarillo.png" alt="UNAM" height="80%" width="5.5%" onclick='dirUNAM()' style="cursor:pointer; position:absolute; top:16%; left:5%; height=10%;">
+				</a>
+				<a class="navbar-brand" href="#">
+					<img alt="" src="images/LogoCGLblanco.png" alt="CGL" height="70%" width="12%" onclick='dirCGL()' style="cursor:pointer; position:absolute; top:20%; left:15%;">
+				</a>
+				
+				  <!--<a class="navbar-brand" href="#">CGL</a>-->
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				  <p style="text-align: right;"><font style="color:#fff;font-size:2em; font-weight:bold;"><br/><?php echo $tituloEx;?></font></p>
+				  
+			</div><!--/.nav-collapse -->				
+		  
+		</nav>
+		<br/>
+	<div class="container container-fluid">	
+		<form action="<?php echo $pExamen;?>" method="post">	
+			<p class="eval" style="text-align:justify;">
+			
+			<?php
+			$folio=$_POST['folio'];
+			//$nombre=$_POST[nombre];
+			$clave=$_POST['clave'];			
+			$evento=$_POST['evento'];
+			$periodo=$_POST['periodo'];
+			//echo"Las variables obtenidas son: folio=$folio , <br/> clave=$clave <br/>";
+			$textobien=$folio."secret_word";
+			//mb_internal_encoding("UTF-8");
+			//mb_http_output( "UTF-8" );
+			$claveExt=md5($textobien);
+			//echo" La clave con la que se compara es:  $claveExt";
+				if($folio!='' && $clave==$claveExt && $evento!='' && $periodo!=''){//&& $ip==132.248.205.70					
+					$_SESSION["a1"]="1";
+					$_SESSION["Folio"]=$folio;
+					//echo"Imprimiré los valores de SESSION</br>";
+					//print_r($_SESSION);
+					//$_SESSION["Nombre"]=$nombre;
+					/*$Folio=$funciones->consultaUnica("select Folio from $nombreBD where Folio=$folio");
+					if($Folio==$folio){
+						
+						$Termino=$funciones->consultaUnica("select Termino from $nombreBD where Folio=$folio");
+						//echo "Termino=$Termino<br/>";
+						
+						if($Termino=='S')
+						{							
+							echo"<br/>
+							<br/>
+							Examen terminado.<br/><br/> Tu examen de inglés ha finalizado satisfactoriamente
+							<br/>
+							";
+							//echo "<br/><br/><u><a target='_blank' href='calificaS.php?c=$_SESSION[Folio]&cal=$cal&rs=$col1' style='color:black'>Comprobante en pdf</a></u>";
+							echo "<br/><br/>			
+							<u>
+								<a href='salirC.php' style='color:yellow'>
+									Cerrar Sesión
+								</a>
+							</u>";
+						}
+						else if($Termino!='S'){		
+							echo"<br/><br/>Da click en el botón para poder continuar tu examen";
+							echo"<br/><br/><input class='btn' type='submit' id='btnE' value='Continuar examen'><br/><br/>";
+							echo"<script>	autoC(); </script>";
+						}
+					
+					}
+					else if($Folio!=$folio){*/
+						echo"EXAMEN DIAGN&Oacute;STICO DE INGL&Eacute;S 2015
+						<br/>
+						<br/>
+						&#8226;El examen diagnóstico inicial de inglés que a continuación te presentamos, tiene la finalidad de establecer tu nivel de conocimientos de este idioma al ingresar al bachillerato en la UNAM. Por tal motivo, te solicitamos lo contestes con atención. Tendrás 60 minutos para resolverlo. 
+						<br/>
+						<br/>
+						Ten presente que este examen no te dará ninguna calificación y no afectará tu solicitud de ingreso al nivel Bachillerato; es un instrumento que solamente pretende medir el nivel de lengua que realmente posees, para que a partir del mismo puedas avanzar con seguridad y confiabilidad en tu aprendizaje del inglés, que te permita prepararte como candidato a movilidad, tengas acceso a becas e intercambios, entre otros beneficios. 
+						<br/>
+						<br/>
+						Antes de empezar a contestar el examen, lee con cuidado las siguientes indicaciones:
+						<br/>
+						<br/>
+						1. El l&iacute;mite de tiempo para realizar la prueba es de 60 minutos.
+						<br/>
+						<br/>						
+						2. La prueba incluye 60 reactivos de opción múltiple, presentados en bloques de 10.
+						<br/>
+						<br/>						
+						3. No te detengas demasiado en alguna pregunta de cuya respuesta no estés seguro(a), avanza, si al final te queda tiempo, <u>revisa ese reactivo antes de dar click en el botón continuar para pasar al siguiente bloque de 10 preguntas.</u>
+						<br/>
+						<br/>						
+						4. Es importante que una vez comenzado el examen <b>NO</b> des click en el botón de retroceso de tu navegador. <br/><br/>
+						";
+						echo"Da click en el botón para comenzar<br/><br/>";
+						
+						//echo "<br/>Tu folio es: $Folio<br/>";
+						//$sql="Insert into $nombreBD (Folio,Evento,Periodo, Etapa,Rc1,Rc2,Rc3,Rc4,Rc5,Rc6,Calificacion,Seccion,Resultado,Inicio) values('$folio','$evento','$periodo','0','0','0','0','0','0','0','-','-','-',NOW())";					
+						
+						$sql="Update $nombreBD set Etapa=0,Bin1='-',Bin2='-',Bin3='-',Bin4='-', Bin5='-',Bin6='-', Rc1='0',Rc2='0',Rc3='0',Rc4='0',Rc5='0',Rc6='0',Calificacion='0',Termino='N' where Folio='$folio'";
+						//$sqlD=$conexionD->consultaD($sql);
+						$sql=$conexion->consulta($sql);						
+						echo"<input type='submit' id='btnE' value='Comenzar examen' class='btn'>";
+						echo "</font>";	
+						echo"<script>	autoC(); </script>";
+					//}
+					
+								
+				}
+				else{
+					echo "<br/>Los datos enviados no son válidos";
+					echo "<br/>Error $folio";
+					echo "<br/>Error $evento";
+					echo "<br/>Error $periodo";
+					echo "<br/>Error $clave";
+					echo "<br/>Error $claveExt";
+					if($clave!=$claveExt){
+						echo "<br/>No concuerda la clave";
+					}
+					if($clave==$claveExt){
+						echo "<br/>La clave es correcta";
+					}
+				}
+			?>			
+			</p>
+		</form>
+	</div><!-- container -->
+	<br/><br/><br/>
+	<br/>
+	<br/>
+<br/>
+<br/>
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted"><font style="font-size: 0.9em">
+				Hecho en M&eacute;xico, <a href="http://www.unam.mx">Universidad Nacional Aut&oacute;noma de M&eacute;xico (UNAM)</a>, todos los derechos reservados 2009 - 2015. Esta p&aacute;gina puede ser reproducida con fines no lucrativos, siempre y cuando se cite la fuente completa y su direcci&oacute;n electr&oacute;nica, y no se mutile. De otra forma requiere permiso previo por escrito de la instituci&oacute;n.<a href="creditos.html">Cr&eacute;ditos</a></font>
+			</p>
+		</div>
+		</footer>
+<!--Ingeniero Hugo Luna a.k.a. hugix4-->
+</body>
+</html>
